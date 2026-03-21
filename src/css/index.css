@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--body-font);
+    color: var(--body-color);
+}
+
+h1 {
+    font-family: var(--header-font);
+}
+
+body {
+    background-color: var(--background-light);
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+section {
+    padding: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
