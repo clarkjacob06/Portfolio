@@ -1,0 +1,49 @@
+
+nav {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo {
+    background: linear-gradient(to top right, #7aa8f1, #3B82F6);
+    font-size: 1.6rem;
+    background-clip: text;
+    color: transparent;
+}
+
+.navButton {
+    stroke: var(--primary-text);
+}
+
+/* TABLET SCREENS  */
+@media (min-width: 768px) {
+
+nav h1 {
+    font-size: 1.5rem;
+}
+
+nav {
+    justify-content: center;
+}
+
+.navContainer {
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.075);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    width: clamp(300px, 40%, 500px);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: var(--header-font);
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.navContainer a {
+    text-decoration: none;
+    border-radius: 50px;
+}
+}
