@@ -16,7 +16,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
                             <img src="/profile.jpg" alt="profile photo" />
                         </div>
 
-                        <a href="mailto: clarkjacob627@gmail.com"> <Mail className={styles.mailIcon} />Send an Email</a>
+                        <a href="/resume.pdf" download={'Clark_Jacob_CV'}> <FileDown className={styles.fileIcon}/>Download CV</a>
                     </section>
 
                     <section className={styles.navSection}>
@@ -25,9 +25,8 @@ export default function Drawer({ isOpen, setIsOpen }) {
                         <a href="#project">Projects</a>
                         <a href="#contact">Socials</a>
                     </section>
-
-                    <a href="/resume.pdf" download={'Clark_Jacob_CV'}  className={styles.resume}><FileDown className={styles.fileIcon}/>Download CV</a>
                 </div>}
         </>
     )
 }
+

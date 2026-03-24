@@ -7,8 +7,8 @@ nav {
 }
 
 nav .logo {
-    background: linear-gradient(to top right, #7aa8f1, #3B82F6);
-    font-size: 1.6rem;
+    background: var(--primary-gradient);
+    font-size: 1.4rem;
     background-clip: text;
     color: transparent;
 }

@@ -3,10 +3,11 @@
     background: linear-gradient(to right, #0F172A, hsla(222, 46%, 11%, 0.596));
     width: 100%;
     height: 100vh;
-    animation: slideIn .2s linear;
+    animation: fadeIn .2s linear;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    z-index: 100;
 }
 
 .drawer a {
@@ -21,18 +22,18 @@
 }
 
 .messageSection {
-    width: 50%;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 15px;
-    padding: 50px 0 0 0;
+    padding: 50px 0 0 30px;
 }
 
 .messageSection a {
-    background: linear-gradient(to top left, #7aa8f1, #3B82F6);
     padding: 8px 13px;
+    border: 2px solid var(--border-color);
     border-radius: 5px;
     color: var(--primary-text);
     display: flex;
@@ -42,10 +43,16 @@
     font-weight: 500;
 }
 
-.mailIcon {
-    width: 18px;
-    height: 18px;
-    stroke: var(--primary-text);
+.messageSection a:active {
+    -webkit-tap-highlight-color: transparent;
+    background: linear-gradient(to top left, #7aa8f1, #3B82F6);
+}
+
+.messageSection h1 {
+    font-size: 1.2rem;
+    background: linear-gradient(to top left, #7aa8f1, #3B82F6);
+    background-clip: text;
+    color: transparent;
 }
 
 .profileContainer {
@@ -72,26 +79,35 @@
 }
 
 .navSection a {
+    opacity: 0;
     font-size: 1rem;
     color: var(--primary-text);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    animation: slideIn .5s forwards;
 }
 
-.resume {
-    background: linear-gradient(to top left, #7aa8f1, #3B82F6);
-    padding: 8px 13px;
-    border-radius: 5px;
-    color: var(--primary-text);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: .8rem;
-    font-weight: 500;
-    margin: 30px 0 0 30px;
-    width: fit-content;
+.navSection a:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.navSection a:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.navSection a:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.navSection a:nth-child(4) {
+    animation-delay: .4s;
+}
+
+.navSection a:active {
+    color: #3B82F6;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .fileIcon {
@@ -100,11 +116,26 @@
     height: 18px;
 }
 
-@keyframes slideIn {
+@keyframes fadeIn {
     from { 
         opacity: 0;
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(20%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
