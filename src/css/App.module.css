@@ -4,11 +4,12 @@
     margin: auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 1fr 1fr 1fr 200px;
+    grid-template-rows: 70px 1fr 1fr 1fr 10%;
+    /* overflow: scroll; */
 }
 
-.heroSection {
-    border: 1px solid blue;
+.wrapper:-webkit-scrollbar {
+    display: none;
 }
 
 .projectSection {

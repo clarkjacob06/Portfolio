@@ -5,9 +5,9 @@
     --body-font: 'IBM Plex Sans';
     --primary-text: #F9FAFB;
     --secondary-text: #D1D5DB;
-    /* --background-dark: #0F172A; */
     --background-dark: #121212;
     --border-color: #374151;
+    --primary-gradient: linear-gradient(to top left, #1363e4, #7aa8f1, #3B82F6);
 }
 
 * {
