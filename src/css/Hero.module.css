@@ -1,5 +1,4 @@
 .heroSection {
-    /* border: 1px solid blue; */
     padding: 50px;
 }
 
@@ -25,8 +24,6 @@
     align-items: center;
     justify-content: start;
     width: fit-content;
-    animation: slideIn .8s ease forwards;
-    opacity: 0;
 }
 
 .namePlate img {
@@ -42,111 +39,28 @@
     border-radius: 50px;
 }
 
-.intro {
-    animation: slideIn 1s ease forwards;
-    opacity: 0;
-    animation-delay: .1s;
+.intro h1 {
+    display: inline-block;
+}
+
+.intro h1:nth-child(1) {
+    margin-right: 5px;
 }
 
 .contactContainer {
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 10px;
+    gap: 12px;
     width: fit-content;
     margin-top: 15px;
 }
 
 .contactContainer a {
     -webkit-tap-highlight-color: transparent;
-    transform: scale(0);
-}
-
-.contactContainer a:nth-child(1) {
-    animation: pop .5s ease forwards;
-    animation-delay: .5s;
-}
-
-.contactContainer a:nth-child(2) {
-    animation: pop .5s ease forwards;
-    animation-delay: .6s;
-}
-
-.contactContainer a:nth-child(3) {
-    animation: pop .5s ease forwards;
-    animation-delay: .7s;
 }
 
 .contactContainer .svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    50% {
-        transform: translateX(5%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes pop {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-/* .heroSection svg {
-    width: 20px;
-    height: 20px;
-    animation: float 12s ease-in-out infinite forwards;
-    position: absolute;
-}
-
-.mongodbIcon {
-    fill: #47A248;
-    animation-delay: 0s;
-}
-
-.expressIcon {
-    fill: var(--primary-text);
-    animation-delay: .3s;
-}
-
-.reactIcon {
-    fill: #61DAFB;
-    animation-delay: .4s;
-}
-
-.nodeIcon {
-    fill: #5FA04E;
-    animation-delay: .5s;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0%);
-    }
-    25% {
-        transform: translateX(-10%);
-    }
-    50% {
-        transform: translateX(-12%);
-    }
-    75%{
-        transform: translateY(-12%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
-} */

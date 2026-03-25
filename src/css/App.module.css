@@ -1,23 +1,14 @@
 .wrapper {
     width: clamp(360px, 100%, 1280px);
-    height: 100vh;
+    height: 100%;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 1fr 1fr 1fr 10%;
-    /* overflow: scroll; */
+    grid-template-rows: 70px auto auto auto auto;
 }
 
 .wrapper:-webkit-scrollbar {
     display: none;
-}
-
-.projectSection {
-    border: 1px solid red;
-}
-
-.aboutSection {
-    border: 1px solid blueviolet;
 }
 
 footer {

@@ -6,7 +6,7 @@ export default function Navigation({isMobile, isOpen, setIsOpen}) {
 
     return (
         <>
-            <nav>
+            <nav id='home'>
                 {isMobile &&    
                     <>
                         <h1 className={styles.logo}>Clark.</h1>

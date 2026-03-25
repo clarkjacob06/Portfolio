@@ -1,32 +1,28 @@
 import styles from '../css/Drawer.module.css';
 
 import { X } from 'lucide-react'
-import { Mail } from 'lucide-react';
-import {FileDown} from 'lucide-react';
+import { FileDown } from 'lucide-react';
 
-export default function Drawer({ isOpen, setIsOpen }) {
+export default function Drawer({ setIsOpen }) {
     return (
-        <>
-            {isOpen &&
-                <div className={styles.drawer}>
-                    <X onClick={() => setIsOpen(false)} className={styles.navButton} />
+        <div className={styles.drawer}>
+            <X onClick={() => setIsOpen(false)} className={styles.navButton} />
 
-                    <section className={styles.messageSection}>
-                        <div className={styles.profileContainer}>
-                            <img src="/profile.jpg" alt="profile photo" />
-                        </div>
+            <section className={styles.messageSection}>
+                <div className={styles.profileContainer}>
+                    <img src="/profile.jpg" alt="profile photo" />
+                </div>
 
-                        <a href="/resume.pdf" download={'Clark_Jacob_CV'}> <FileDown className={styles.fileIcon}/>Download CV</a>
-                    </section>
+                <a href="/resume.pdf" download={'Clark_Jacob_CV'}> <FileDown className={styles.fileIcon} />Download CV</a>
+            </section>
 
-                    <section className={styles.navSection}>
-                        <a href="#hero">Home</a>
-                        <a href="#about">About me</a>
-                        <a href="#project">Projects</a>
-                        <a href="#contact">Socials</a>
-                    </section>
-                </div>}
-        </>
+            <section className={styles.navSection} >
+                <a href="#" onClick={() => setIsOpen(false)}>Home</a>
+                <a href="#project" onClick={() => setIsOpen(false)}>Projects</a>
+                <a href="#about" onClick={() => setIsOpen(false)}>About me</a>
+                <a href="#socials" onClick={() => setIsOpen(false)}>Socials</a>
+            </section>
+        </div>
     )
 }
 
