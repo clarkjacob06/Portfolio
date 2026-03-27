@@ -1,0 +1,38 @@
+🎨 Core Dark Palette
+
+Backgrounds
+
+#0F172A → Main background (deep navy, easier on eyes than pure black)
+#111827 → Secondary background (cards, panels)
+#1F2933 → Elevated surfaces (modals, dropdowns)
+
+Text
+
+#F9FAFB → Primary text (high contrast)
+#D1D5DB → Secondary text
+#9CA3AF → Muted/disabled text
+🌈 Accent Colors
+
+Primary (brand / buttons)
+
+#3B82F6 → Blue (clean, modern)
+Hover: #2563EB
+
+Secondary accent
+
+#22C55E → Green (success, positive actions)
+
+Highlight / CTA
+
+#F59E0B → Amber (draws attention without being harsh)
+⚠️ Status Colors
+Success: #10B981
+Warning: #F59E0B
+Error: #EF4444
+Info: #38BDF8
+🧱 UI Elements
+Borders: #374151
+Dividers: #1F2937
+Input background: #111827
+Input focus ring: #3B82F6
+

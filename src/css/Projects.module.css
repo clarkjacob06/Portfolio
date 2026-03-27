@@ -2,3 +2,59 @@
     border: 1px solid red;
 }
 
+.projectContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.projectCard {
+    width: 100%;
+    background-color: #111827;
+    box-shadow: inset 0 0 10px 1px var(--border-color);
+    /* border-radius: 12px; */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 10% 5% 15% 1fr;
+    grid-template-areas: "stack date"
+                        "name name"
+                        "description description"
+                        "image image";
+}
+
+.projectCard h2 {
+    grid-area: 'name';
+    background-color: blue;
+}
+
+.projectCard .description {
+    grid-area: 'description';
+    background-color: rgb(0, 100, 0);
+}
+
+.projectCard img {
+    /* max-width: 200px; */
+    grid-area: 'image';
+}
+
+.stackContainer {
+    grid-area: 'stack';
+    background-color: yellow;
+}
+
+.date {
+    background-color: orange;
+    grid-area: 'date';
+}
+
+.stackContainer img {
+    width: 12px;
+    height: 12px;
+}
