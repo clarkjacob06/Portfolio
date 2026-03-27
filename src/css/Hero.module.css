@@ -1,10 +1,12 @@
 .heroSection {
     padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heroSection p {
     color: var(--primary-text);
-
 }
 
 .heroSection h1 {
