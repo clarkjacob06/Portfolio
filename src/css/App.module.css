@@ -4,7 +4,7 @@
     margin: auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px auto auto auto auto;
+    grid-template-rows: 70px auto 100px auto auto 100px;
 }
 
 .wrapper:-webkit-scrollbar {
@@ -12,6 +12,45 @@
 }
 
 footer {
-    border: 1px solid lime;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+}
+
+footer h1 {
+    background: var(--primary-text);
+    font-size: 1.3rem;
+    background-clip: text;
+    color: transparent;
+}
+
+footer p {
+    color: var(--primary-text);
+    font-size: .8rem;
+}
+
+footer img {
+    width: 20px;
+    animation: glow 1.5s ease-in-out infinite alternate-reverse;
+    fill: white;
+}
+
+.framework {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(1px 1px 10px #61dafb00)
+                drop-shadow(1px 1px 8px #61dafb00);
+    }
+    to {
+        filter: drop-shadow(1px 1px 10px #61DAFB)
+                drop-shadow(1px 1px 5px #61DAFB);
+    }
 }

@@ -1,3 +1,11 @@
 .aboutSection {
     border: 1px solid blueviolet;
 }
+
+.aboutSection h1 {
+    font-size: 1.3rem;
+    background: var(--primary-gradient);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}   

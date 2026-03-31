@@ -1,0 +1,21 @@
+.scrollSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    animation: bounce 1s ease-in-out infinite alternate-reverse;
+
+    color: var(--primary-text);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(30%);
+    }
+
+    100% {
+        transform: translateY(-30%);
+    }
+}
