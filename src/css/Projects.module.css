@@ -1,13 +1,16 @@
 .projectSection {
-    border: 1px solid red;
-}
-
-.projectContainer {
-    width: 100%;
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    justify-content: center;
+}
+
+.projectSection h1 {
+    font-size: 1.3rem;
+    background: var(--primary-gradient);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
 }
 
 a {
@@ -16,45 +19,80 @@ a {
 }
 
 .projectCard {
-    width: 100%;
+    width: clamp(360px, 80%, 50vw);
     background-color: #111827;
-    box-shadow: inset 0 0 10px 1px var(--border-color);
-    /* border-radius: 12px; */
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 10% 5% 15% 1fr;
-    grid-template-areas: "stack date"
-                        "name name"
-                        "description description"
-                        "image image";
+    box-shadow: inset 0 0 8px 1px rgba(255, 255, 255, 0.466);
+    border-radius: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    padding: 18px;
+    position: relative;
+    gap: 10px;
 }
 
 .projectCard h2 {
-    grid-area: 'name';
-    background-color: blue;
+    font-size: 1.2rem;
+    color: var(--primary-text);
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.deviceContainer {
+    padding-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.deviceContainer .device {
+    height: 15px;
+    width: 15px;
 }
 
 .projectCard .description {
-    grid-area: 'description';
-    background-color: rgb(0, 100, 0);
+    font-size: .8rem;
 }
 
-.projectCard img {
-    /* max-width: 200px; */
-    grid-area: 'image';
+.projectImageContainer {
+    height: 150px;
+    width: 100%;
+    background-position: top;
+    background-size: cover;
+    align-self: center;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 8px;
 }
 
 .stackContainer {
-    grid-area: 'stack';
-    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .date {
-    background-color: orange;
-    grid-area: 'date';
+    font-size: .7rem;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
 }
 
 .stackContainer img {
     width: 12px;
     height: 12px;
+}
+
+.descContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
 }

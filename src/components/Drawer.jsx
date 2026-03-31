@@ -10,7 +10,7 @@ export default function Drawer({ setIsOpen }) {
 
             <section className={styles.messageSection}>
                 <div className={styles.profileContainer}>
-                    <img src="/profile.jpg" alt="profile photo" />
+                    <img src="/pixel_transparent.avif" alt="profile photo" />
                 </div>
 
                 <a href="/resume.pdf" download={'Clark_Jacob_CV'}> <FileDown className={styles.fileIcon} />Download CV</a>
@@ -25,4 +25,3 @@ export default function Drawer({ setIsOpen }) {
         </div>
     )
 }
-
