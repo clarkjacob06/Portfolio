@@ -1,6 +1,6 @@
 import styles from '../css/Projects.module.css';
 import { Smartphone, Laptop } from 'lucide-react';
-import {motion} from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 export default function Projects() {
     const projects = [{
@@ -44,30 +44,95 @@ export default function Projects() {
         name: 'Steam Clone',
         url: 'https://steamshopclone.netlify.app/',
         stack: ['html5.svg', 'css.svg', 'javascript.svg'],
-        description: 'A steam shop clone website :)',
+        description: 'A steam shop clone website for fun :)',
         date: 'December 1, 2024',
         device: [<Laptop className={styles.device} />]
     }
     ]
 
+    const textRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add(styles.show)
+                }else {
+                    entry.target.classList.remove(styles.show)
+                }
+            })
+        }, {threshold: 0.1})
+
+    if(textRef.current) observer.observe(textRef.current);
+
+
+    const cards = document.querySelectorAll(`.${styles.projectCard}`)
+    cards.forEach((card) => {
+        observer.observe(card)
+    });
+
+        return () => observer.disconnect();
+    }, [])
+
     return (
         <>
-            <section className={styles.projectSection} id='project'>
-                <h1>My Works</h1>
+            <section className={styles.projectSection}>
+                <h1 ref={textRef}>Works</h1>
+
+                {projects.map((item, index) => (
+                    <a href={item.url} key={index}>
+                        <div className={styles.projectCard}>
+                            <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}></div>
+
+                            <div className={styles.descContainer}>
+                                <div className={styles.titleContainer}>
+                                    <h2>{item.name}</h2>
+                                    <div className={styles.deviceContainer}>{item.device}</div>
+                                </div>
+                                
+                                <p className={styles.description}>{item.description}</p>
+                            </div>
+
+                            <div className={styles.stackContainer}>
+                                {item.stack.map((svg, index) => (
+                                    <img src={`/svg/${svg}`} alt="" key={index} />
+                                ))}
+                            </div>
+
+                            <p className={styles.date}>{item.date}</p>
+                        </div>
+                    </a>
+                ))}
+            </section>
+        </>
+    )
+}
+
+
+{/* <section className={styles.projectSection} id='project'>
+                <motion.h1 
+                initial={{
+                    x: -100,
+                    opacity: 0
+                }}
+                whileInView={{
+                    x: 0,
+                    opacity: 1,
+                    transition: {duration: .3}
+                }}
+                viewport={{amount: .3}}>Works</motion.h1>
 
                 {projects.map((item, index) => (
                     <a href={item.url} key={index}>
                         <motion.div className={styles.projectCard} 
                         initial={{
-                                y: 50,
-                                opacity: 0,
+                                scale: 0,
                         }}
                         whileInView={{
-                                y: 0,
-                                opacity: 1,
-                                transition: {duration: .3}
+                                scale: 1,
+                                transition: {duration: .2}
                         }}
-                        viewport={{amount: .3}}>
+                        viewport={{amount: .1}}>
                             <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}></div>
 
                             <div className={styles.descContainer}>
@@ -89,9 +154,4 @@ export default function Projects() {
                         </motion.div>
                     </a>
                 ))}
-            </section>
-        </>
-    )
-}
-
-
+            </section> */}
