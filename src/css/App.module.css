@@ -21,20 +21,20 @@ footer {
 
 footer h1 {
     background: var(--primary-text);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     background-clip: text;
     color: transparent;
 }
 
 footer p {
     color: var(--primary-text);
-    font-size: .8rem;
+    font-size: .7rem;
 }
 
 footer img {
     width: 20px;
-    animation: glow 1.5s ease-in-out infinite alternate-reverse;
-    fill: white;
+    animation: glow 1.5s ease-in-out infinite alternate,
+                spin 3s linear infinite;
 }
 
 .framework {
@@ -52,5 +52,14 @@ footer img {
     to {
         filter: drop-shadow(1px 1px 10px #61DAFB)
                 drop-shadow(1px 1px 5px #61DAFB);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

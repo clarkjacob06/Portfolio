@@ -4,13 +4,14 @@ import { X } from 'lucide-react'
 import { FileDown } from 'lucide-react';
 
 export default function Drawer({ setIsOpen }) {
+
     return (
         <div className={styles.drawer}>
             <X onClick={() => setIsOpen(false)} className={styles.navButton} />
 
             <section className={styles.messageSection}>
                 <div className={styles.profileContainer}>
-                    <img src="/pixel_transparent.avif" alt="profile photo" />
+                    <img src="/pixel_transparent.avif" alt="profile photo"/>
                 </div>
 
                 <a href="/resume.pdf" download={'Clark_Jacob_CV'}> <FileDown className={styles.fileIcon} />Download CV</a>
