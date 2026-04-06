@@ -4,7 +4,7 @@
     margin: auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px auto 100px auto auto 100px;
+    grid-template-rows: 70px auto 100px auto 100px auto 100px;
 }
 
 .wrapper:-webkit-scrollbar {
