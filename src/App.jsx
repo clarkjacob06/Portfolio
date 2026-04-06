@@ -1,5 +1,8 @@
 import styles from './css/App.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger)
 
 import Navigation from './components/Navigation';
 import Drawer from './components/Drawer';
@@ -24,7 +27,6 @@ function App() {
     return () => removeEventListener('resize', handleResize)
   }, [])
 
-
   return (
     <div className={styles.wrapper}>
 
@@ -33,6 +35,7 @@ function App() {
       <Hero />
       <Scroll/>
       <Projects/>
+      <Scroll/>
       <About/>
 
       <footer id='socials'>

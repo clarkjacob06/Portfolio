@@ -1,11 +1,43 @@
 .aboutSection {
-    border: 1px solid blueviolet;
+    overflow: auto;
 }
 
-.aboutSection h1 {
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 'title img'
+                        'title img'
+                        'desc desc';
+    gap: 5px;
+}
+
+.gridContainer .aboutH1 {
     font-size: 1.3rem;
+    text-align: center;
+    grid-area: title;
+    align-self: center;
+}
+
+.gridContainer h1 span {
     background: var(--primary-gradient);
     background-clip: text;
     color: transparent;
+}
+
+.aboutP {
+    grid-area: desc;
     text-align: center;
+    align-self: center;
+    color: var(--primary-text);
+}
+
+.imgContainer {
+    background-image: url('/bio.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 200px;
+    border-radius: 5px;
+    grid-area: img;
 }

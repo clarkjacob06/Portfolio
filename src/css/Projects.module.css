@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    justify-content: center;
 }
 
 .projectSection h1 {
@@ -41,6 +40,8 @@ a {
     transform: scale(0);
     transform-origin: bottom left;
     transition: .3s ease;
+    justify-self: center;
+
 }
 
 .projectCard.show {

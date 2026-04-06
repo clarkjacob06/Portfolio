@@ -28,12 +28,13 @@ export default function Drawer({ setIsOpen }) {
             )
             .fromTo(`.${styles.statusText}`,
                 {
-                    scaleX: 0,
+                    maxWidth: 0,
                 },
                 {
-                    scaleX: 1,
+                    maxWidth: 100,
+                    marginLeft: 3, 
                     transformOrigin: 'left',
-                    duration: .1,
+                    duration: .3,
                     ease: 'power1.out'
                 },
                 '-=.2'

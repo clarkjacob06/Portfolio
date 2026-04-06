@@ -1,12 +1,77 @@
 import styles from '../css/About.module.css';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
+
 
 export default function About() {
+
+    useGSAP(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+            trigger: `.${styles.gridContainer}`,
+            toggleActions: 'restart none none reverse',
+            start:  'top 50%',
+            end: 'top 10%',
+            }
+        });
+
+        tl.fromTo(`.${styles.imgContainer}`, {
+            opacity: 0,
+            y: 100
+        },
+        {
+           opacity: 1,
+           y: 0,
+           duration: .6,
+           ease: 'power1.out'     
+        })
+        .fromTo(`.${styles.imgContainer}`, 
+        {
+            x: -80
+        },
+        {
+            x: 0,
+            duration: .3,
+            ease: 'power1.out'
+        })
+        .fromTo(`.${styles.aboutH1}`,
+        {
+            opacity: 0,
+            x: '50%',
+            zIndex: -1
+        },
+        {
+            opacity: 1,
+            x: 0,
+            duration: .3,
+            ease: 'power1.out',
+        }, '-=.3')
+        .fromTo(`.${styles.aboutP}`, 
+        {
+            opacity: 0,
+            x: -50,
+            zIndex: -1
+        },
+        {
+            opacity: 1,
+            x: 0,
+            duration: .3
+        }, '+=.5')
+        
+    })
+
     return (
         <>
             <section className={styles.aboutSection}>
-                <h1 id='about'>About me</h1>
-                
-                
+
+                <div className={styles.gridContainer}>
+                    <div className={styles.imgContainer}></div>
+                    <h1 id='about' className={styles.aboutH1}>Know more about <span>Clark.</span></h1>
+                    
+                    <p className={styles.aboutP}>It all started with a simple college project. Now I have a passion in creating functional web applications using self-taught development skills.</p>
+                </div>
             </section>
         </>
     )
