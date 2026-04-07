@@ -1,5 +1,10 @@
 .aboutSection {
     overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .gridContainer {
@@ -29,7 +34,9 @@
     grid-area: desc;
     text-align: center;
     align-self: center;
+    justify-self: center;
     color: var(--primary-text);
+    max-width: 400px;
 }
 
 .imgContainer {

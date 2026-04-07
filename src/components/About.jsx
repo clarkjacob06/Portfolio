@@ -2,10 +2,40 @@ import styles from '../css/About.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
+
+import Stack from './Stack';
+import Scroll from './Scroll';
+
 gsap.registerPlugin(ScrollTrigger);
 
 
 export default function About() {
+    const tech = [
+        {name: 'HTML', logo: '/svg/html5.svg'},
+        {name: 'CSS', logo: '/svg/css.svg'},
+        {name: 'Javascript', logo: '/svg/javascript.svg'},
+        {name: 'MongoDB', logo: '/svg/mongodb.svg'},
+        {name: 'Express', logo: '/svg/expressdotjs.svg'},
+        {name: 'React', logo: '/svg/react.svg'},
+        {name: 'Node', logo: '/svg/nodedotjs.svg'}
+    ];
+
+    const tools = [
+        {name: 'Figma', logo: '/svg/figma.svg'},
+        {name: 'Git', logo: '/svg/git.svg'},
+        {name: 'Github', logo: '/svg/github.svg'},
+        {name: 'NPM', logo: '/svg/npm.svg'},
+        {name: 'Figma', logo: '/svg/figma.svg'},
+        {name: 'Postman', logo: '/svg/postman.svg'},
+        {name: 'GSAP', logo: '/svg/gsap.svg'}      
+
+    ]
+
+    const infastructures = [
+        {name: 'Netlify', logo: '/svg/netlify.svg'},        
+        {name: 'Render', logo: '/svg/render.svg'},        
+        {name: 'Vercel', logo: '/svg/vercel.svg'},        
+    ];
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -39,7 +69,7 @@ export default function About() {
         .fromTo(`.${styles.aboutH1}`,
         {
             opacity: 0,
-            x: '50%',
+            x: 50,
             zIndex: -1
         },
         {
@@ -51,14 +81,14 @@ export default function About() {
         .fromTo(`.${styles.aboutP}`, 
         {
             opacity: 0,
-            x: -50,
+            y: -50,
             zIndex: -1
         },
         {
             opacity: 1,
-            x: 0,
+            y: 0,
             duration: .3
-        }, '+=.5')
+        }, '+=.4')
         
     })
 
@@ -66,12 +96,17 @@ export default function About() {
         <>
             <section className={styles.aboutSection}>
 
-                <div className={styles.gridContainer}>
+                <div className={styles.gridContainer} id='about'>
                     <div className={styles.imgContainer}></div>
-                    <h1 id='about' className={styles.aboutH1}>Know more about <span>Clark.</span></h1>
+                    <h1 className={styles.aboutH1}>Know more about <span>Clark.</span></h1>
                     
                     <p className={styles.aboutP}>It all started with a simple college project. Now I have a passion in creating functional web applications using self-taught development skills.</p>
                 </div>
+
+                <Scroll/>
+                <Stack icon='layers' title='Tech Stack' stack={tech}/>
+                <Stack icon='cog' title='Tools' stack={tools}/>
+                <Stack icon='monitor' title='Infastructure' stack={infastructures}/>
             </section>
         </>
     )
