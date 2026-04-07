@@ -1,0 +1,70 @@
+.stackCard {
+    background-color: #111827;
+    box-shadow: inset 0 0 8px 1px rgba(255, 255, 255, 0.466);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: clamp(360px, 50vw, 600px);
+    height: 300px;
+}
+
+.animationContainer {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animationContainer .logos {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+}
+
+.introContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.introH2 {
+    font-size: .9rem;
+    text-wrap: nowrap;
+    color: var(--primary-text);
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stackIcon {
+    height: 18px;
+    width: 18px;
+    color: var(--primary-text);
+}
+
+.stackContainer {
+    width: 100%;
+    height: 30%;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.stackContainer p {
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: .8rem;
+}
