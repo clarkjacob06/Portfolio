@@ -25,7 +25,6 @@ export default function About() {
         {name: 'Git', logo: '/svg/git.svg'},
         {name: 'Github', logo: '/svg/github.svg'},
         {name: 'NPM', logo: '/svg/npm.svg'},
-        {name: 'Figma', logo: '/svg/figma.svg'},
         {name: 'Postman', logo: '/svg/postman.svg'},
         {name: 'GSAP', logo: '/svg/gsap.svg'}      
 
@@ -100,7 +99,7 @@ export default function About() {
                     <div className={styles.imgContainer}></div>
                     <h1 className={styles.aboutH1}>Know more about <span>Clark.</span></h1>
                     
-                    <p className={styles.aboutP}>It all started with a simple college project. Now I have a passion in creating functional web applications using self-taught development skills.</p>
+                    <p className={styles.aboutP}>It all started with a simple college project. Now I have a passion in creating functional web applications using self-taught web development skills.</p>
                 </div>
 
                 <Scroll/>
