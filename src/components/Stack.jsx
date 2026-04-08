@@ -45,36 +45,6 @@ export default function Stack({icon, title, stack}) {
         )
     }, {scope: containerRef})
 
-    useGSAP(() => {
-        const icons = gsap.utils.toArray(`.${styles.logos}`);
-
-        icons.forEach((icon) => {
-            const random = gsap.utils.random(-100, 100);
-            gsap.set(icon,
-                {
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: 'top 60%',
-                        end: 'top: 30%',
-                        toggleActions: 'restart none none reverse',
-                        markers: true,
-
-                        onEnter: () => {
-                            gsap.set(icon, 
-                                {
-                                    x: random,
-                                    y: random,
-                                    opacity: 1,
-                                    duration: .3
-                                }
-                            )
-                        }
-                    }
-                }
-            )
-        })
-        
-    }, {scope: containerRef})
 
     return(
         <div className={styles.stackCard}>
@@ -87,7 +57,7 @@ export default function Stack({icon, title, stack}) {
                     <h2 className={styles.introH2}>{title}</h2>
                 </div>
 
-                {stack.map((item, _) => (
+                {stack.map((item, index) => (
                     <img src={item.logo} alt={item.name} className={styles.logos}/>
                 ))}
                 
