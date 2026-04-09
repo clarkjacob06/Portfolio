@@ -10,14 +10,7 @@
     background-clip: text;
     color: transparent;
     text-align: center;
-    opacity: 0;
-    transform: translateX(-200px);
     transition: .3s ease;
-}
-
-.projectSection h1.show {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 a {
@@ -37,15 +30,11 @@ a {
     padding: 18px;
     position: relative;
     gap: 10px;
-    transform: scale(0);
+    /* transform: scale(0); */
     transform-origin: bottom left;
     transition: .3s ease;
     justify-self: center;
 
-}
-
-.projectCard.show {
-    transform: scale(1);
 }
 
 .projectCard h2 {

@@ -5,6 +5,9 @@
     justify-content: center;
     flex-direction: column;
     gap: 15px;
+    z-index: 4;
+    background-color: var(--background-dark);
+    padding-top: 50px;
 }
 
 .gridContainer {
