@@ -53,7 +53,7 @@ export default function About() {
         {
            opacity: 1,
            y: 0,
-           duration: .6,
+           duration: .8,
            ease: 'power1.out'     
         })
         .fromTo(`.${styles.imgContainer}`, 
@@ -88,7 +88,6 @@ export default function About() {
             y: 0,
             duration: .3
         }, '+=.4')
-        
     })
 
     return (
@@ -99,7 +98,7 @@ export default function About() {
                     <div className={styles.imgContainer}></div>
                     <h1 className={styles.aboutH1}>Know more about <span>Clark.</span></h1>
                     
-                    <p className={styles.aboutP}>It all started with a simple college project. Now I have a passion in creating functional web applications using self-taught web development skills.</p>
+                    <p className={styles.aboutP}>It all started with a simple college project. Now I have a passion for creating functional web applications using self-taught web development skills.</p>
                 </div>
 
                 <Scroll/>

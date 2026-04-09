@@ -1,6 +1,10 @@
 import styles from '../css/Projects.module.css';
 import { Smartphone, Laptop } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import {useGSAP} from '@gsap/react';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
     const projects = [{
@@ -50,34 +54,42 @@ export default function Projects() {
     }
     ]
 
-    const textRef = useRef(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add(styles.show)
-                }else {
-                    entry.target.classList.remove(styles.show)
+
+    useGSAP(() => {
+        const cards = gsap.utils.toArray(`.${styles.projectCard}`).forEach((card) => {
+            gsap.fromTo(card, 
+                {
+                    scale: 0,
+                    transformOrigin: 'bottom left'
+                },
+                {
+                    scale: 1,
+                    duration: .1,
+                    ease: 'expo.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        toggleActions: 'restart none none reverse',
+                        start: 'top 90%',
+                        end: 'bottom 30%',
+                    }
                 }
-            })
-        }, {threshold: 0.1})
+            )
+        })
 
-    if(textRef.current) observer.observe(textRef.current);
-
-
-    const cards = document.querySelectorAll(`.${styles.projectCard}`)
-    cards.forEach((card) => {
-        observer.observe(card)
-    });
-
-        return () => observer.disconnect();
-    }, [])
+        ScrollTrigger.create({
+            trigger: `.${styles.projectSection}`,
+            pin: true,
+            pinSpacing: false,
+            scrub: 1,
+            start: 'bottom 70%'
+        })
+    })
 
     return (
         <>
             <section className={styles.projectSection}>
-                <h1 ref={textRef}>Works</h1>
+                <h1>Works</h1>
 
                 {projects.map((item, index) => (
                     <a href={item.url} key={index}>

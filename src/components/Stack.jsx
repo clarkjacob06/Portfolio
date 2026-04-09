@@ -39,7 +39,7 @@ export default function Stack({icon, title, stack}) {
             {
                 opacity: 1,
                 maxWidth: 100,
-                duration: .3,
+                duration: .4,
                 ease: 'power1.out'
             }
         )
@@ -57,7 +57,7 @@ export default function Stack({icon, title, stack}) {
                     <h2 className={styles.introH2}>{title}</h2>
                 </div>
 
-                {stack.map((item, index) => (
+                {stack.map((item, _) => (
                     <img src={item.logo} alt={item.name} className={styles.logos}/>
                 ))}
                 
