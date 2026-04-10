@@ -13,9 +13,9 @@ export default function Stack({icon, title, stack}) {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
-                start: 'top 60%',
+                start: 'top 50%',
                 end: 'bottom 10%',
-                toggleActions: 'restart none none reverse',
+                toggleActions: 'restart none none reverse'
             }
         })
 

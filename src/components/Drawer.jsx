@@ -58,7 +58,7 @@ export default function Drawer({ setIsOpen }) {
             </section>
             <section className={styles.navSection} >
                 <a href="#" onClick={() => setIsOpen(false)}>Home</a>
-                <a href="#project" onClick={() => setIsOpen(false)}>Projects</a>
+                <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
                 <a href="#about" onClick={() => setIsOpen(false)}>About me</a>
                 <a href="#socials" onClick={() => setIsOpen(false)}>Socials</a>
             </section>
