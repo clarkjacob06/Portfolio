@@ -9,11 +9,17 @@
     color: var(--primary-text);
 }
 
-.heroSection h1 {
+.introH1 {
     background: var(--primary-gradient);
     background-clip: text;
     color: transparent;
     font-size: 2.5rem;
+    transform: scaleY(0);
+    transform-origin: bottom
+}
+
+.introP {
+    transform: scaleY(0);
 }
 
 .heroSection span {
@@ -22,31 +28,31 @@
 }
 
 .namePlate {
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: start;
+    gap: 5px;
     width: fit-content;
 }
 
-.namePlate img {
+.horizontalLine {
+    transform: scaleX(0);
+}
+
+.nameplateImg {
     width: 25px;
     border-radius: 50px;
     transform: scaleX(-1);
 }
 
-.namePlate p{
-    font-size: .8rem;
-    color: var(--primary-text);
+.namePlate .nameplateP{
+    font-size: .7rem;
     padding: 3px 8px;
     border-radius: 50px;
-}
-
-.intro h1 {
-    display: inline-block;
-}
-
-.intro h1:nth-child(1) {
-    margin-right: 5px;
+    background-color: #F8F9FA;
+    color: #121212;
+    border-bottom-left-radius: 0px;
 }
 
 .contactContainer {
@@ -65,4 +71,14 @@
 .contactContainer .svg {
     width: 16px;
     height: 16px;
+}
+
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transfrom: rotate(360deg)
+    }
 }

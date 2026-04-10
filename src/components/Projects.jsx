@@ -57,13 +57,15 @@ export default function Projects() {
 
 
     useGSAP(() => {
-        const cards = gsap.utils.toArray(`.${styles.projectCard}`).forEach((card) => {
+        gsap.utils.toArray(`.${styles.projectCard}`).forEach((card) => {
             gsap.fromTo(card, 
                 {
+                    opacity: 0,
                     scale: 0,
                     transformOrigin: 'bottom left'
                 },
                 {
+                    opacity: 1,
                     scale: 1,
                     duration: .1,
                     ease: 'expo.out',
@@ -81,7 +83,6 @@ export default function Projects() {
             trigger: `.${styles.projectSection}`,
             pin: true,
             pinSpacing: false,
-            scrub: 1,
             start: 'bottom 70%'
         })
     })
@@ -89,7 +90,7 @@ export default function Projects() {
     return (
         <>
             <section className={styles.projectSection}>
-                <h1>Works</h1>
+                <h1 id='projects'>Works</h1>
 
                 {projects.map((item, index) => (
                     <a href={item.url} key={index}>

@@ -26,8 +26,8 @@ export default function About() {
         {name: 'Github', logo: '/svg/github.svg'},
         {name: 'NPM', logo: '/svg/npm.svg'},
         {name: 'Postman', logo: '/svg/postman.svg'},
-        {name: 'GSAP', logo: '/svg/gsap.svg'}      
-
+        {name: 'GSAP', logo: '/svg/gsap.svg'},
+        {name: 'Vite', logo: '/svg/vite.svg'},
     ]
 
     const infastructures = [
