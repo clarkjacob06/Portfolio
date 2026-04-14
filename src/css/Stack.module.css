@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: clamp(360px, 50vw, 600px);
+    width: clamp(360px, 50vw, 500px);
     height: 300px;
 }
 

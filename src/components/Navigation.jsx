@@ -17,9 +17,9 @@ export default function Navigation({isMobile, isOpen, setIsOpen}) {
                 {!isMobile &&
                     <div className={styles.navContainer}>
                         <a href="#hero">Home</a>
-                        <a href="#project">Projects</a>
+                        <a href="#projects">Projects</a>
                         <a href="#about">About</a>
-                        <a href="#contact">Contact</a>
+                        <a href="#socials">Contact</a>
                     </div>
                 }
             </nav>

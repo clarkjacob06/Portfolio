@@ -6,14 +6,14 @@ import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Stack({icon, title, stack}) {
+export default function Stack({ icon, title, stack }) {
     const containerRef = useRef(null);
 
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
-                start: 'top 50%',
+                start: '30% 60%',
                 end: 'bottom 10%',
                 toggleActions: 'restart none none reverse'
             }
@@ -31,36 +31,36 @@ export default function Stack({icon, title, stack}) {
                 ease: 'elastic.out'
             }
         )
-        .fromTo(`.${styles.introH2}`, 
-            {
-                maxWidth: 0,
-                opacity: 0
-            },
-            {
-                opacity: 1,
-                maxWidth: 100,
-                duration: .4,
-                ease: 'power1.out'
-            }
-        )
-    }, {scope: containerRef})
+            .fromTo(`.${styles.introH2}`,
+                {
+                    maxWidth: 0,
+                    opacity: 0
+                },
+                {
+                    opacity: 1,
+                    maxWidth: 100,
+                    duration: .4,
+                    ease: 'power1.out'
+                }
+            )
+    }, { scope: containerRef })
 
 
-    return(
+    return (
         <div className={styles.stackCard}>
             <div className={styles.animationContainer} ref={containerRef}>
 
                 <div className={styles.introContainer}>
                     <div className={styles.iconContainer}>
-                        {icon === 'layers' ? <Layers className={styles.stackIcon}/> : icon === 'cog' ? <Cog className={styles.stackIcon}/> : <Cloud className={styles.stackIcon}/>}
+                        {icon === 'layers' ? <Layers className={styles.stackIcon} /> : icon === 'cog' ? <Cog className={styles.stackIcon} /> : <Cloud className={styles.stackIcon} />}
                     </div>
                     <h2 className={styles.introH2}>{title}</h2>
                 </div>
 
-                {stack.map((item, _) => (
-                    <img src={item.logo} alt={item.name} className={styles.logos}/>
+                {stack.map((item, i) => (
+                    <img src={item.logo} alt={item.name} className={styles.logos} key={i}/>
                 ))}
-                
+
             </div>
 
             <div className={styles.stackContainer}>
