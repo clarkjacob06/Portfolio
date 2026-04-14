@@ -1,0 +1,95 @@
+.historyContainer {
+    width: clamp(360px, 50vw, 500px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5% 1fr;
+    grid-template-areas:
+                        'year year'
+                        'list list';
+    gap: 25px;
+}
+
+.yearContainer {
+    grid-area: year;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px 16px;
+    gap: 15px;
+}
+
+.yearContainer p {
+    color: var(--primary-text);
+    font-size: .8rem;
+    padding: 3px 8px
+}
+
+.yearContainer input {
+    display: none;
+}
+
+.yearContainer label {
+    border-radius: 3px;
+    color: var(--primary-text);
+    font-size: .8rem;
+    padding: 5px 10px
+}
+
+.yearContainer input:checked + label {
+    background-color: #3B82F6;
+}
+
+.historyList {
+    border-left: 2px solid white;
+    grid-area: list;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    overflow: hidden;
+ }
+
+.history {
+    padding: 0px 15px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.position {
+    font-size: 1.1rem;
+}
+
+.company {
+    font-size: .8rem;
+}
+
+.description {
+    font-size: .9rem;
+    color: var(--primary-text);
+}
+
+.term {
+    font-size: .8rem;
+}
+
+@media screen and (min-width: 768px) {
+    .historyContainer {
+        grid-template-columns: 20% 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 'year list';
+    }
+
+    .historyContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+    .yearContainer {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+}

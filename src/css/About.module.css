@@ -4,10 +4,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     z-index: 4;
-    background-color: var(--background-dark);
+    backdrop-filter: blur(8px);
+    border-radius: 25px 25px 0 0;
     padding-top: 50px;
+    border: 1px solid white;
 }
 
 .gridContainer {

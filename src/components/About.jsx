@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/all';
 
 import Stack from './Stack';
 import Scroll from './Scroll';
+import Experience from './Experience';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +18,8 @@ export default function About() {
         {name: 'MongoDB', logo: '/svg/mongodb.svg'},
         {name: 'Express', logo: '/svg/expressdotjs.svg'},
         {name: 'React', logo: '/svg/react.svg'},
-        {name: 'Node', logo: '/svg/nodedotjs.svg'}
+        {name: 'Node', logo: '/svg/nodedotjs.svg'},
+        {name: 'REST', logo: '/svg/api.svg'}
     ];
 
     const tools = [
@@ -30,7 +32,7 @@ export default function About() {
         {name: 'Vite', logo: '/svg/vite.svg'},
     ]
 
-    const infastructures = [
+    const infrastructures = [
         {name: 'Netlify', logo: '/svg/netlify.svg'},        
         {name: 'Render', logo: '/svg/render.svg'},        
         {name: 'Vercel', logo: '/svg/vercel.svg'},        
@@ -102,9 +104,12 @@ export default function About() {
                 </div>
 
                 <Scroll/>
+                <Scroll text='Work History'/>
+                <Experience/>
+                <Scroll/>
                 <Stack icon='layers' title='Tech Stack' stack={tech}/>
                 <Stack icon='cog' title='Tools' stack={tools}/>
-                <Stack icon='monitor' title='Infastructure' stack={infastructures}/>
+                <Stack icon='monitor' title='Infrastructure' stack={infrastructures}/>
             </section>
         </>
     )

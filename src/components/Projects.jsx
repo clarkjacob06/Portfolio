@@ -1,12 +1,14 @@
 import styles from '../css/Projects.module.css';
 import { Smartphone, Laptop } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import {useGSAP} from '@gsap/react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
+    const [isOpen, setIsOpen] = useState(false);
+
     const projects = [{
         image: '/projectImages/open_notes.avif',
         name: 'Open Notes',
@@ -54,7 +56,26 @@ export default function Projects() {
     }
     ]
 
-
+    const otherProjects = [
+        {
+            image: '/projectImages/beyond_the_woods.avif',
+            name: 'Beyond the Woods',
+            url: 'https://ceejaygamedev.itch.io/beyond-the-woods',
+            stack: ['csharp.svg', 'unity.svg'],
+            description: 'A 3D-survival horror game for a school project.',
+            date: 'June 24, 2025',
+            device: [<Laptop className={styles.device} />]
+        },
+        {
+            image: '/projectImages/dotify.avif',
+            name: 'Dotify',
+            url: 'https://dotifyed.netlify.app/',
+            stack: ['html5.svg', 'css.svg', 'javascript.svg'],
+            description: 'My first ever website, spotify clone.',
+            date: 'November 28, 2023',
+            device: [<Laptop className={styles.device} />]
+        }
+    ]
 
     useGSAP(() => {
         gsap.utils.toArray(`.${styles.projectCard}`).forEach((card) => {
@@ -68,7 +89,7 @@ export default function Projects() {
                     opacity: 1,
                     scale: 1,
                     duration: .1,
-                    ease: 'expo.out',
+                    ease: 'power3.out',
                     scrollTrigger: {
                         trigger: card,
                         toggleActions: 'restart none none reverse',
@@ -92,8 +113,8 @@ export default function Projects() {
             <section className={styles.projectSection}>
                 <h1 id='projects'>Works</h1>
 
-                {projects.map((item, index) => (
-                    <a href={item.url} key={index}>
+                {projects.map((item, i) => (
+                    <a href={item.url} key={i}>
                         <div className={styles.projectCard}>
                             <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}></div>
 
@@ -107,8 +128,8 @@ export default function Projects() {
                             </div>
 
                             <div className={styles.stackContainer}>
-                                {item.stack.map((svg, index) => (
-                                    <img src={`/svg/${svg}`} alt="" key={index} />
+                                {item.stack.map((svg, i) => (
+                                    <img src={`/svg/${svg}`} alt="" key={i} />
                                 ))}
                             </div>
 
@@ -116,36 +137,12 @@ export default function Projects() {
                         </div>
                     </a>
                 ))}
-            </section>
-        </>
-    )
-}
 
+                {!isOpen && <button onClick={() => setIsOpen(true)}>Show more</button>}
 
-{/* <section className={styles.projectSection} id='project'>
-                <motion.h1 
-                initial={{
-                    x: -100,
-                    opacity: 0
-                }}
-                whileInView={{
-                    x: 0,
-                    opacity: 1,
-                    transition: {duration: .3}
-                }}
-                viewport={{amount: .3}}>Works</motion.h1>
-
-                {projects.map((item, index) => (
-                    <a href={item.url} key={index}>
-                        <motion.div className={styles.projectCard} 
-                        initial={{
-                                scale: 0,
-                        }}
-                        whileInView={{
-                                scale: 1,
-                                transition: {duration: .2}
-                        }}
-                        viewport={{amount: .1}}>
+                {isOpen && otherProjects.map((item, i) => (
+                    <a href={item.url} key={i}>
+                        <div className={styles.projectCard}>
                             <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}></div>
 
                             <div className={styles.descContainer}>
@@ -158,13 +155,16 @@ export default function Projects() {
                             </div>
 
                             <div className={styles.stackContainer}>
-                                {item.stack.map((svg, index) => (
-                                    <img src={`/svg/${svg}`} alt="" key={index} />
+                                {item.stack.map((svg, i) => (
+                                    <img src={`/svg/${svg}`} alt="" key={i} />
                                 ))}
                             </div>
 
                             <p className={styles.date}>{item.date}</p>
-                        </motion.div>
+                        </div>
                     </a>
                 ))}
-            </section> */}
+            </section>
+        </>
+    )
+}

@@ -17,6 +17,7 @@
     box-sizing: border-box;
     font-family: var(--body-font);
     color: var(--secondary-text);
+    user-select: none;
 }
 
 h1 {
