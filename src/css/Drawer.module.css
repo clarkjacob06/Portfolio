@@ -106,7 +106,7 @@
     padding: 20px 0 0 30px;
     width: 50%;
     display: flex;
-    align-items: baseline;
+    align-items: start;
     flex-direction: column;
     gap: 35px;
 }

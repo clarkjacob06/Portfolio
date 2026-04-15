@@ -7,8 +7,8 @@ import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
 import Projects from './components/Projects.jsx';
 import Scroll from './components/Scroll.jsx';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+
+import 'leaflet/dist/leaflet.css';
 
 function App() {
 

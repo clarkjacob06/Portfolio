@@ -2,8 +2,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    border: 3px solid white;
-    height: auto;
 }
 
 .projectSection::-webkit-scrollbar {
@@ -19,14 +17,13 @@
     transition: .3s ease;
 }
 
-.projectSection button {
-    background-color: #3B82F6;
+.showBtn {
+    background-color: #3b83f6;
+    border: var(--border-color);
     color: var(--primary-text);
-    font-size: .8rem;
-    outline: none;
-    border: none;
+    font-size: .9rem;
     width: fit-content;
-    padding: 5px 10px;
+    padding: 5px 16px;
     border-radius: 3px;
     justify-self: center;
 }
