@@ -70,12 +70,16 @@ export default function Projects() {
             image: '/projectImages/dotify.avif',
             name: 'Dotify',
             url: 'https://dotifyed.netlify.app/',
-            stack: ['html5.svg', 'css.svg', 'javascript.svg'],
+            stack: ['html5.svg', 'css.svg'],
             description: 'My first ever website, spotify clone.',
             date: 'November 28, 2023',
             device: [<Laptop className={styles.device} />]
         }
     ]
+
+    useEffect(() => {
+        ScrollTrigger.refresh()
+    }, [isOpen])
 
     useGSAP(() => {
         gsap.utils.toArray(`.${styles.projectCard}`).forEach((card) => {
@@ -100,6 +104,22 @@ export default function Projects() {
             )
         })
 
+        gsap.fromTo(`.${styles.showBtn}`, 
+            {
+                scale: 0
+            },
+            {
+                scale: 1,
+                duration: .3,
+                ease: 'power1.out',
+                scrollTrigger: {
+                    trigger: `.${styles.showBtn}`,
+                    start: 'top 90%',
+                    toggleActions: 'restart none none reverse'
+                }
+            }
+        )
+
         ScrollTrigger.create({
             trigger: `.${styles.projectSection}`,
             pin: true,
@@ -107,6 +127,8 @@ export default function Projects() {
             start: 'bottom 70%'
         })
     })
+
+
 
     return (
         <>
@@ -138,8 +160,6 @@ export default function Projects() {
                     </a>
                 ))}
 
-                {!isOpen && <button onClick={() => setIsOpen(true)}>Show more</button>}
-
                 {isOpen && otherProjects.map((item, i) => (
                     <a href={item.url} key={i}>
                         <div className={styles.projectCard}>
@@ -164,6 +184,9 @@ export default function Projects() {
                         </div>
                     </a>
                 ))}
+
+                {!isOpen ? <button className={styles.showBtn} onClick={() => setIsOpen(true)}>Show more</button> : <button className={styles.showBtn} onClick={() => setIsOpen(false)}>Hide</button>}
+
             </section>
         </>
     )
