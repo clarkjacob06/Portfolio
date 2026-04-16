@@ -43,23 +43,35 @@ export default function Stack({ icon, title, stack }) {
                     ease: 'power1.out'
                 }
             )
-    }, { scope: containerRef })
+       } , {scope: containerRef})
 
 
     return (
         <div className={styles.stackCard}>
             <div className={styles.animationContainer} ref={containerRef}>
 
-                <div className={styles.introContainer}>
-                    <div className={styles.iconContainer}>
-                        {icon === 'layers' ? <Layers className={styles.stackIcon} /> : icon === 'cog' ? <Cog className={styles.stackIcon} /> : <Cloud className={styles.stackIcon} />}
+                <div className={styles.introWrapper}>
+                    <div className={styles.introContainer}>
+                        <div className={styles.iconContainer}>
+                            {icon === 'layers' ? <Layers className={styles.stackIcon} /> : icon === 'cog' ? <Cog className={styles.stackIcon} /> : <Cloud className={styles.stackIcon} />}
+                        </div>
+                        <h2 className={styles.introH2}>{title}</h2>
                     </div>
-                    <h2 className={styles.introH2}>{title}</h2>
                 </div>
 
-                {stack.map((item, i) => (
-                    <img src={item.logo} alt={item.name} className={styles.logos} key={i}/>
-                ))}
+                <div className={styles.carouselContainer}>
+                    <div className={styles.logoContainer}>
+                        {stack.map((item, i) => (
+                            <img src={item.logo} alt={item.name} className={styles.logos} key={i} />
+                        ))}
+                    </div>
+
+                    {/* <div className={styles.logoContainer}>
+                        {stack.map((item, i) => (
+                            <img src={item.logo} alt={item.name} className={styles.logos} key={i} />
+                        ))}
+                    </div> */}
+                </div>
 
             </div>
 
