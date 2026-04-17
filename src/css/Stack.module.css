@@ -1,35 +1,58 @@
 .stackCard {
     background-color: #111827;
-    box-shadow: inset 0 0 8px 1px rgba(255, 255, 255, 0.466);
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.466);
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     width: clamp(360px, 50vw, 500px);
-    height: 300px;
+    height: calc(300px - 90px);
+    overflow: hidden;
+    position: relative;
 }
 
 .animationContainer {
     position: relative;
     width: 100%;
-    height: 70%;
+    height: 210px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
 }
 
-.carouselContainer {
-    border: 1px solid rgb(255, 0, 0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    flex: .5;
-    overflow: hidden;
-}
+    .carouselContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        flex: 0;
+        overflow: hidden;
+        perspective: 800px;
+        position: relative;
+    }
+
+    .carouselContainer::before {
+        content: '';
+        position: absolute;
+        height: 30%;
+        width: 100%;
+        top: 0;
+        z-index: 4;
+        display: block;
+        background: linear-gradient(to bottom, #111827, transparent);
+    }
+
+    .carouselContainer::after {
+        content: '';
+        position: absolute;
+        height: 30%;
+        width: 100%;
+        bottom: 0;
+        z-index: 4;
+        display: block;
+        background: linear-gradient(to bottom, transparent, #111827);
+    }
 
 .logoContainer {
     display: flex;
@@ -37,10 +60,9 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     gap: 35px;
-    border: 1px solid yellow;
-    animation: scroll 10s ease linear infinite;
+    animation: scroll 20s linear infinite;
+    padding-top: 35px;
 }
 
 .logoContainer .logos {
@@ -52,7 +74,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
     flex: 1;
     height: 100%;
 }
@@ -85,7 +106,7 @@
 
 .stackContainer {
     width: 100%;
-    height: 30%;
+    height: 90px;
     padding: 5px 15px;
     display: flex;
     align-items: center;
@@ -100,12 +121,19 @@
     font-size: .8rem;
 }
 
+.showBtn {
+    position: absolute;
+    bottom: 0px ;
+    left: 10px;
+    z-index: 10;
+}
+
 @keyframes scroll {
     from {
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 
     to {
-        transform: translateX(-100%);
+        transform: translateY(100%);
     }
 }

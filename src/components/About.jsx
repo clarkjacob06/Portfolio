@@ -107,9 +107,12 @@ export default function About() {
                 <Scroll text='Work History'/>
                 <Experience/>
                 <Scroll/>
-                <Stack icon='layers' title='Tech Stack' stack={tech}/>
-                <Stack icon='cog' title='Tools' stack={tools}/>
-                <Stack icon='monitor' title='Infrastructure' stack={infrastructures}/>
+                
+                <div className={styles.stackWrapper}>
+                    <Stack icon='layers' title='Tech Stack' stack={tech}/>
+                    <Stack icon='cog' title='Tools' stack={tools}/>
+                    <Stack icon='monitor' title='Infrastructure' stack={infrastructures}/>
+                </div>
             </section>
         </>
     )
