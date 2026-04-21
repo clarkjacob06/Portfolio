@@ -88,6 +88,7 @@ export default function About() {
         {
             opacity: 1,
             y: 0,
+            transformOrigin: 'bottom',
             duration: .3
         }, '+=.4')
     })
@@ -108,6 +109,7 @@ export default function About() {
                 <Experience/>
                 <Scroll/>
                 
+                <Scroll text='What I work with'/>
                 <div className={styles.stackWrapper}>
                     <Stack icon='layers' title='Tech Stack' stack={tech}/>
                     <Stack icon='cog' title='Tools' stack={tools}/>
