@@ -47,7 +47,7 @@ export default function Stack({ icon, title, stack }) {
                     ease: 'power1.out'
                 }
             )
-            .fromTo(`.${styles.carouselContainer}`, 
+            .fromTo(`.${styles.carouselContainer}`,
                 {
                     opacity: 0
                 },
@@ -59,8 +59,27 @@ export default function Stack({ icon, title, stack }) {
                 },
                 '-=.4'
             )
+            .fromTo(`.${styles.bgIcon}`, 
+                {
+                    x: -50,
+                    opacity: 0
+                },
+                {
+                    x: 0,
+                    opacity: .02,
+                    duration: .5
+                },
+                '-=.8'
+            )
+            .fromTo(`.${styles.showBtn}`,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: .5,
+                }
+            )
 
-       } , {scope: containerRef})
+    }, { scope: cardRef })
 
     function handleClick() {
         setIsVisible(!isVisible);
@@ -116,9 +135,21 @@ export default function Stack({ icon, title, stack }) {
                 ))}
             </div>
 
-            {/* <div className={styles.showBtn} onClick={handleClick}>
-                <ChevronDown></ChevronDown>
-            </div> */}
+            <div className={styles.showBtn} onClick={handleClick}>
+                <ChevronDown className={styles.icon}></ChevronDown>
+            </div>
+{/* 
+            {isVisible && <div className={styles.showBtn} onClick={handleClick}>
+                <ChevronDown className={styles.icon}></ChevronDown>
+            </div>} */}
+
+
+            {/* for displaying background icons */}
+            {
+                icon === 'layers' ? <Layers className={styles.bgIcon} /> : 
+                icon === 'cog' ? <Cog className={styles.bgIcon} /> : 
+                <Cloud className={styles.bgIcon} />
+            }
 
         </div>
     )
