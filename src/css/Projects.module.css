@@ -18,10 +18,10 @@
 }
 
 .showBtn {
-    background-color: #3b83f6;
+    background-color: hsl(217, 91%, 60%);
     border: var(--border-color);
     color: var(--primary-text);
-    font-size: .9rem;
+    font-size: .8rem;
     width: fit-content;
     padding: 5px 16px;
     border-radius: 3px;
