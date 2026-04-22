@@ -2,12 +2,12 @@ import styles from '../css/About.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 
 import Stack from './Stack';
 import Scroll from './Scroll';
 import Experience from './Experience';
-
-gsap.registerPlugin(ScrollTrigger);
+import Contacts from './Contacts';
 
 
 export default function About() {
@@ -115,6 +115,10 @@ export default function About() {
                     <Stack icon='cog' title='Tools' stack={tools}/>
                     <Stack icon='monitor' title='Infrastructure' stack={infrastructures}/>
                 </div>
+                
+                <Scroll/>
+                <Scroll text='Reach out to me'/>
+                <Contacts/>
             </section>
         </>
     )
