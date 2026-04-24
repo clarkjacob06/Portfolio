@@ -8,6 +8,11 @@
     display: none;
 }
 
+.projectSection a {
+    width: fit-content;
+    justify-self: center;
+}
+
 .projectSection h1 {
     font-size: 1.3rem;
     background: var(--primary-gradient);

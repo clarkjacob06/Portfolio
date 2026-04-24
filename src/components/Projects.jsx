@@ -136,8 +136,8 @@ export default function Projects() {
                 <h1 id='projects'>Works</h1>
 
                 {projects.map((item, i) => (
-                    <a href={item.url} key={i}>
-                        <div className={styles.projectCard}>
+                    <a href={item.url}>
+                        <div className={styles.projectCard}  key={i}>
                             <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}></div>
 
                             <div className={styles.descContainer}>

@@ -1,5 +1,6 @@
 .wrapper {
     width: clamp(360px, 100%, 1280px);
+    justify-self: center;
 }
 
 .wrapper:-webkit-scrollbar {
