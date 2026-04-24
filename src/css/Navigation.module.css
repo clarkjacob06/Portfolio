@@ -2,6 +2,7 @@
 nav {
     padding: 10px 20px;
     display: flex;
+    height: 70px;
     align-items: center;
     justify-content: space-between;
     position: sticky;
@@ -21,26 +22,32 @@ nav .logo {
     stroke: var(--primary-text);
 }
 
+
+
+
+
 /* TABLET SCREENS  */
 @media (min-width: 768px) {
 
-nav h1 {
-    font-size: 1.5rem;
+nav .logo {
+    font-size: 1.8rem;
 }
 
 nav {
-    justify-content: center;
+    justify-self: center;
+    width: 100%;
+    justify-content: space-between;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--background-dark), transparent);
+    padding: 20px 30px;
 }
 
 .navContainer {
-    border-radius: 50px;
-    background-color: rgba(0, 0, 0, 0.075);
-    border: 1px solid var(--border-color);
-    padding: 12px;
-    width: clamp(300px, 40%, 500px);
+    padding: 10px 12px;
+    gap: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-family: var(--header-font);
     font-weight: 600;
     font-size: .9rem;
@@ -48,6 +55,60 @@ nav {
 
 .navContainer a {
     text-decoration: none;
+    font-size: 1rem;
+    transition: .2s ease-in-out;
+}
+
+.navContainer a:hover {
+    /* color: #2563EB; */
+    color: var(--primary-text);
+    text-shadow: 1px 1px 12px var(--primary-text);
+}
+
+.cvContainer {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
     border-radius: 50px;
+    border: 1px solid var(--border-color);
+    gap: 8px;
+    overflow: hidden;
+}
+
+.cvContainer::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    left: 0;
+    background: var(--primary-gradient);
+    z-index: -1;
+    transition: .3s ease-in-out;
+}
+
+.cvContainer:hover::before {
+    width: 100%;
+}
+.cvContainer:hover .icon {
+    stroke: var(--primary-text);
+}
+
+.cvContainer:hover p {
+    color: var(--primary-text);
+}
+
+.cvContainer .icon {
+    height: 18px;
+    width: 18px;
+    transition: .3s ease-in-out;
+}
+
+.cvContainer p {
+    font-size: .9rem;
+    font-weight: 500;
+    transition: .3s ease-in-out;
 }
 }

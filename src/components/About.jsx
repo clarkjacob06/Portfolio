@@ -96,6 +96,7 @@ export default function About() {
     return (
         <>
             <section className={styles.aboutSection}>
+                <Scroll/>
 
                 <div className={styles.gridContainer} id='about'>
                     <div className={styles.imgContainer}></div>

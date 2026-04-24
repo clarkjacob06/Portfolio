@@ -50,7 +50,7 @@ export default function Drawer({ setIsOpen }) {
                     <img src="/pixel_transparent.avif" alt="profile photo"/>
                     <div className={styles.status}>
                         <div className={styles.greenIcon}></div>
-                        <div className={styles.statusText}>Available to work</div>
+                        <div className={styles.statusText}>Available for work</div>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@ export default function Drawer({ setIsOpen }) {
                 <a href="#" onClick={() => setIsOpen(false)}>Home</a>
                 <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
                 <a href="#about" onClick={() => setIsOpen(false)}>About me</a>
-                <a href="#socials" onClick={() => setIsOpen(false)}>Socials</a>
+                <a href="#socials" onClick={() => setIsOpen(false)}>Contacts</a>
             </section>
         </div>
     )
