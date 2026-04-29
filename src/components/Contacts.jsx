@@ -32,7 +32,6 @@ export default function Contacts() {
                 <iframe className={styles.map} allow="geolocation" src="https://api.maptiler.com/maps/base-v4/?key=83xgVCacaBjMMFKdUZvv&marker=121.0959822102268,14.596898420774755#15/14.596898420774755/121.0959822102268" ></iframe>
             </div>
 
-            <Scroll/>
         </>
     )
 }
