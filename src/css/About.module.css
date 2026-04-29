@@ -61,3 +61,23 @@
     flex-direction: column;
     gap: 30px;
 }
+
+@media screen and (min-width: 768px) {
+    .imgContainer {
+        height: 350px;
+        width: 250px;
+    }
+
+    .gridContainer {
+        gap: 30px;
+    }
+
+    .gridContainer .aboutH1 {
+        font-size: 1.4rem
+    }
+
+    .gridContainer .aboutP {
+        font-size: 1rem;
+        max-width: 500px;
+    }
+}

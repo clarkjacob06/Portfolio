@@ -1,21 +1,24 @@
 import styles from '../css/Projects.module.css';
-import { Smartphone, Laptop } from 'lucide-react';
+import { Smartphone, Laptop, Globe, ExternalLink } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import {useGSAP} from '@gsap/react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
+import Scroll from './Scroll';
+
 export default function Projects() {
     const [isOpen, setIsOpen] = useState(false);
-
+    const [isMobile, setIsMobile] = useState(true);
+    
     const projects = [{
         image: '/projectImages/open_notes.avif',
         name: 'Open Notes',
         url: 'https://mern-opennotes.onrender.com',
         stack: ['mongodb.svg', 'expressdotjs.svg', 'react.svg', 'nodedotjs.svg'],
         description: 'A note-management system for your everyday notes.',
-        date: 'March 1, 2026',
+        date: 'Mar 1, 2026',
         device: [<Smartphone className={styles.device} />, <Laptop className={styles.device} />]
     },
     {
@@ -24,7 +27,7 @@ export default function Projects() {
         url: 'https://marcimetzgerweb.netlify.app/',
         stack: ['html5.svg', 'css.svg', 'javascript.svg'],
         description: 'A simple home page design for real estate inquiries.',
-        date: 'January 14, 2026',
+        date: 'Jan 14, 2026',
         device: [<Laptop className={styles.device} />]
     },
     {
@@ -33,7 +36,7 @@ export default function Projects() {
         url: 'https://quizquestss.netlify.app/',
         stack: ['html5.svg', 'css.svg', 'javascript.svg'],
         description: 'An E-Learning website to deepen and challenge your programming knowledge.',
-        date: 'November 9, 2025',
+        date: 'Nov 9, 2025',
         device: [<Laptop className={styles.device} />]
     },
     {
@@ -42,7 +45,7 @@ export default function Projects() {
         url: 'https://webbundy.netlify.app/',
         stack: ['html5.svg', 'css.svg', 'javascript.svg'],
         description: 'A timekeeping system to track your total hours working as an intern.',
-        date: 'October 13, 2025',
+        date: 'Oct 13, 2025',
         device: [<Laptop className={styles.device} />]
     },
     {
@@ -51,7 +54,7 @@ export default function Projects() {
         url: 'https://steamshopclone.netlify.app/',
         stack: ['html5.svg', 'css.svg', 'javascript.svg'],
         description: 'A steam shop clone website for fun :)',
-        date: 'December 1, 2024',
+        date: 'Dec 1, 2024',
         device: [<Laptop className={styles.device} />]
     }
     ]
@@ -63,7 +66,7 @@ export default function Projects() {
             url: 'https://ceejaygamedev.itch.io/beyond-the-woods',
             stack: ['csharp.svg', 'unity.svg'],
             description: 'A 3D-survival horror game for a school project.',
-            date: 'June 24, 2025',
+            date: 'Jun 24, 2025',
             device: [<Laptop className={styles.device} />]
         },
         {
@@ -72,7 +75,7 @@ export default function Projects() {
             url: 'https://dotifyed.netlify.app/',
             stack: ['html5.svg', 'css.svg'],
             description: 'My first ever website, spotify clone.',
-            date: 'November 28, 2023',
+            date: 'Nov 28, 2023',
             device: [<Laptop className={styles.device} />]
         }
     ]
@@ -85,15 +88,13 @@ export default function Projects() {
         gsap.utils.toArray(`.${styles.projectCard}`).forEach((card) => {
             gsap.fromTo(card, 
                 {
-                    opacity: 0,
                     scale: 0,
                     transformOrigin: 'bottom left'
                 },
                 {
-                    opacity: 1,
                     scale: 1,
                     duration: .1,
-                    ease: 'power3.out',
+                    ease: 'sine.out',
                     scrollTrigger: {
                         trigger: card,
                         toggleActions: 'restart none none reverse',
@@ -128,17 +129,37 @@ export default function Projects() {
         })
     })
 
+    useEffect(() => {
+        const windowResize = () => {
+            window.innerWidth >= 768 && setIsMobile(false);
+        }
 
+        windowResize();
+        window.addEventListener('resize', windowResize);
+
+        return () => removeEventListener('resize', windowResize);
+    })
 
     return (
         <>
             <section className={styles.projectSection}>
-                <h1 id='projects'>Works</h1>
+                <div id='projects'></div>
+                <Scroll text='Check out my works'/>
 
                 {projects.map((item, i) => (
                     <a href={item.url}>
                         <div className={styles.projectCard}  key={i}>
-                            <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}></div>
+                            <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}>
+
+                                {!isMobile && 
+                                <div className={styles.blurPanel}>
+                                    <div className={styles.redirectBtn}>
+                                        <ExternalLink className={styles.icon}/>
+                                        <p>Visit site</p>
+                                    </div>
+                                </div>}
+
+                            </div>
 
                             <div className={styles.descContainer}>
                                 <div className={styles.titleContainer}>
@@ -155,7 +176,10 @@ export default function Projects() {
                                 ))}
                             </div>
 
-                            <p className={styles.date}>{item.date}</p>
+                            <div className={styles.dateContainer}>
+                                <Globe className={styles.icon}/>
+                                <p className={styles.date}>{item.date}</p>
+                            </div>
                         </div>
                     </a>
                 ))}
@@ -163,7 +187,17 @@ export default function Projects() {
                 {isOpen && otherProjects.map((item, i) => (
                     <a href={item.url} key={i}>
                         <div className={styles.projectCard}>
-                            <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}></div>
+                            <div className={styles.projectImageContainer} style={{ backgroundImage: `url(${item.image})` }}>
+
+                                {!isMobile && 
+                                <div className={styles.blurPanel}>
+                                    <div className={styles.redirectBtn}>
+                                        <ExternalLink className={styles.icon}/>
+                                        <p>Visit site</p>
+                                    </div>
+                                </div>}
+
+                            </div>
 
                             <div className={styles.descContainer}>
                                 <div className={styles.titleContainer}>
@@ -180,7 +214,10 @@ export default function Projects() {
                                 ))}
                             </div>
 
-                            <p className={styles.date}>{item.date}</p>
+                            <div className={styles.dateContainer}>
+                                <Globe className={styles.icon}/>
+                                <p className={styles.date}>{item.date}</p>
+                            </div>
                         </div>
                     </a>
                 ))}

@@ -43,3 +43,16 @@
     border-right: 2px solid var(--border-color);
     padding-right: 8px;
 }
+
+@media screen and (min-width: 768px) {
+    .map {
+        height: 200px;
+        width: 70rem;
+    }
+
+    .contactsContainer {
+        width: 700px;
+        flex-direction: row;
+        gap: 50px;
+    }
+}

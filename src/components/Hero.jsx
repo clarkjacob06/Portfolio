@@ -38,7 +38,7 @@ export default function Hero() {
         )
         .to(`.${styles.horizontalLine}`,
             {
-                scaleX: 1
+                scaleX: 1,
             },
             '+=.3'
         )
